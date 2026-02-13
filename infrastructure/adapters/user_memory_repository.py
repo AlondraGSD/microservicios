@@ -15,3 +15,18 @@ class UserMemoryRepository(UserRepository):
         self.counter += 1
         self.users.append(user)
         return user
+
+    def update_user(self, user_id: int, user: User) -> User:
+        for u in self.users:
+            if u.idusuario == user_id:
+                u.nombre = user.nombre
+                u.email = user.email
+                return u
+        return {"message": "Usuario no encontrado"}
+
+    def delete_user(self, user_id: int):
+        for u in self.users:
+            if u.idusuario == user_id:
+                self.users.remove(u)
+                return {"message": "Usuario eliminado"}
+        return {"message": "Usuario no encontrado"}

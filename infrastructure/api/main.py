@@ -19,3 +19,11 @@ def get_users():
 @app.post("/users")
 def create_user(user: User):
     return service.create_user(user)
+
+@app.put("/users/{user_id}")
+def update_user(user_id: int, user: User):
+    return service.update_user(user_id, user)
+
+@app.delete("/users/{user_id}")
+def delete_user(user_id: int):
+    return service.delete_user(user_id)

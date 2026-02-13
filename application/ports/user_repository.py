@@ -10,3 +10,9 @@ class UserRepository(ABC):
     @abstractmethod
     def create(self, user: User) -> User:
         pass
+
+    def update_user(self, user_id: int, user: User) -> User:
+        pass
+
+    def delete_user(self, user_id: int):
+        pass
